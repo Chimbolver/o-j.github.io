@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuenta Regresiva para ver a mi ratulina</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffeef0;
+            color: #ff0066;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            padding: 10px;
+        }
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #ff3366;
+            text-shadow: 2px 2px 10px rgba(255, 50, 100, 0.6);
+        }
+        .hearts {
+            text-shadow: 2px 2px 10px rgba(255, 50, 100, 0.6);
+            margin-top: 20px;
+        }
+        .heart {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background-color: #ff6666;
+            position: relative;
+            transform: rotate(-45deg);
+        }
+        .heart::before, .heart::after {
+            content: "";
+            width: 50px;
+            height: 50px;
+            background-color: #ff6666;
+            border-radius: 50%;
+            position: absolute;
+        }
+        .heart::before {
+            top: -25px;
+            left: 0;
+        }
+        .heart::after {
+            left: 25px;
+            top: 0;
+        }
+        .countdown {
+            font-size: 1.2rem;
+            margin: 20px;
+            color: #ff3366;
+            text-shadow: 1px 1px 5px rgba(255, 50, 100, 0.6);
+        }
+        .progress-container {
+            width: 90%;
+            max-width: 600px;
+            margin-top: 20px;
+            background-color: #f0c9d9;
+            border-radius: 20px;
+            box-shadow: 0 0 15px rgba(255, 100, 150, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .progress-bar {
+            height: 30px;
+            background-color: #ff3366;
+            border-radius: 20px;
+            width: 0%;
+            transition: width 1s ease;
+        }
+        .heart {
+            font-size: 3rem;
+            color: red;
+        }
+        .message {
+            margin-top: 30px;
+            font-size: 1.2rem;
+            color: #ff3366;
+        }
+        
+        /* Media query para pantallas pequeñas */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.4rem;
+            }
+            .countdown {
+                font-size: 1rem;
+            }
+            .progress-bar {
+                height: 25px;
+            }
+            .message {
+                font-size: 1rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div>
+        <h1>Cuenta regresiva para ver la cara preciosa de mi ratulina </h1>
+        <div class="hearts"><br>
+            <div style="margin-right:35px" class="heart"></div>
+            <div style="margin-right:35px" class="heart"></div>
+            <div class="heart"></div>
+        </div>
+        <div class="countdown" id="countdown"></div>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <div class="message" id="message"></div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            const targetDate = new Date('2025-04-15T12:00:00'); // Fecha objetivo (15 de abril a las 12 horas)
+            const countdownElement = document.getElementById('countdown');
+            const progressBar = document.getElementById('progressBar');
+            const messageElement = document.getElementById('message');
+
+            function updateCountdown() {
+                const currentDate = new Date();
+                const timeDifference = targetDate - currentDate;
+                const totalDuration = targetDate - new Date('2025-02-11T00:00:00'); // Desde hoy
+
+                // Cálculo de días, horas, minutos y segundos restantes
+                const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+                // Mostrar la cuenta regresiva
+                countdownElement.innerHTML = `Faltan: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+                // Calcular el progreso de la barra
+                const progress = (timeDifference / totalDuration) * 100;
+                progressBar.style.width = progress + '%';
+
+                // Mostrar el mensaje con solo el día actual
+                messageElement.innerHTML = `TE AMO OLIVIA`;
+
+                // Cambiar el mensaje cuando se llegue a la fecha
+                if (timeDifference <= 0) {
+                    clearInterval(countdownInterval);
+                    countdownElement.innerHTML = '';
+                    messageElement.innerHTML = 'TE AMO SE SUPONE QUE YA ESTOY CONTIGO JIJI ';
+                }
+            }
+
+            // Actualizar cada segundo
+            const countdownInterval = setInterval(updateCountdown, 1000);
+        };
+    </script>
+
+</body>
+</html>
