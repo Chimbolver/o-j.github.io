@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Navidad :)</title>
+    <style>
+.love-card-olive {
+    max-width: 650px;
+    margin: 30px auto;
+    padding: 32px 35px;
+    background: #e9f2e5; /* verde oliva clarito */
+    border: 2px solid #c6d7c0;
+    border-radius: 28px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+        0 10px 20px rgba(180, 200, 170, 0.35),
+        inset 0 0 12px rgba(255, 255, 255, 0.6);
+    animation: softPulse 4.5s ease-in-out infinite;
+}
+
+.love-card-olive h4 {
+    margin: 0;
+    text-align: center;
+    font-family: "Marck Script", cursive;
+    font-size: 22px;
+    color: #6a7c63; /* oliva más profundo */
+}
+
+/* 💚✨ Corazones flotando */
+.love-card-olive::before,
+.love-card-olive::after {
+    content: "💚";
+    position: absolute;
+    font-size: 30px;
+    opacity: 0.35;
+    animation: floatHearts 5s infinite ease-in-out;
+}
+
+.love-card-olive::before {
+    top: -20px;
+    left: 20px;
+    animation-delay: 0s;
+}
+
+.love-card-olive::after {
+    bottom: -20px;
+    right: 20px;
+    animation-delay: 1.8s;
+}
+
+/* Más corazones extra */
+.love-card-olive .heart1,
+.love-card-olive .heart2,
+.love-card-olive .heart3 {
+    position: absolute;
+    font-size: 26px;
+    opacity: 0.28;
+    pointer-events: none;
+    animation: floatHearts 6s infinite ease-in-out;
+}
+
+.love-card-olive .heart1 {
+    content: "💚";
+    top: 40%;
+    left: -10px;
+    animation-delay: 1s;
+}
+
+.love-card-olive .heart2 {
+    content: "💚";
+    top: 10%;
+    right: -15px;
+    animation-delay: 2.3s;
+}
+
+.love-card-olive .heart3 {
+    content: "💚";
+    bottom: 5%;
+    left: 45%;
+    animation-delay: 3.5s;
+}
+
+/* Animaciones */
+@keyframes floatHearts {
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-15px) scale(1.15); }
+    100% { transform: translateY(0) scale(1); }
+}
+
+@keyframes softPulse {
+    0% { box-shadow: 0 10px 20px rgba(180, 200, 170, 0.35); }
+    50% { box-shadow: 0 14px 26px rgba(160, 185, 155, 0.5); }
+    100% { box-shadow: 0 10px 20px rgba(180, 200, 170, 0.35); }
+}
+
+    h4 {
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+    <h1>Última Fase</h1>
+    <div class="love-card-olive">
+    <span class="heart1">💚</span>
+    <span class="heart2">💚</span>
+    <span class="heart3">💚</span>
+
+    <h4>
+        Bueno esta parte no es ningún puzzle ni nada similar, es un pequeño agrademiento por hacer que esto sea posible y por inspirarme, sé que lo haces sin interés :). 
+        Esto es parte de algo un poquito mas grande y no sorpresa mas que llevo preparando para mi mas tiempo jijiji. Te amo, te adoro, te todo mi ratulina, simplemente gracias.
+    </h4>
+</div>
+
+    <h3><a href="Index.html">LOBBY</a></h3>
+   
+</body>
+</html>
