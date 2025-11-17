@@ -9,37 +9,95 @@
     <link rel="stylesheet" href="style.css">
     <title>Navidad :)</title>
     <style>
-      .love-card {
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 20px 25px;
-    background: #ffd6e8;
-    border-radius: 20px;
-    box-shadow: 0 10px 20px rgba(255, 182, 193, 0.4);
-    animation: floaty 3s ease-in-out infinite;
-    transition: transform 0.3s ease;
-    border: 2px solid #ffb7cf;
+    .love-card-brown {
+    max-width: 640px;
+    margin: 30px auto;
+    padding: 34px 36px;
+    background: linear-gradient(135deg, #fbf6f2, #f3e9df); /* marrón muy suave */
+    border-radius: 26px;
+    border: 1px solid #e7d7c8;
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+        0 12px 28px rgba(150, 120, 100, 0.12),
+        inset 0 0 10px rgba(255,255,255,0.6);
+    animation: warmFloat 5s ease-in-out infinite;
 }
 
-.love-card:hover {
-    transform: scale(1.01);
-    box-shadow: 0 15px 30px rgba(255, 182, 193, 0.6);
-}
-
-.love-card h4 {
+.love-card-brown h4 {
     margin: 0;
     text-align: center;
-    font-family: "Marck Script";
-    font-size: 20px;
-    color: #c45a7d;
+    font-family: "Marck Script", cursive;
+    font-size: 21px;
+    color: #6b4f3a; /* marrón profundo para el texto */
+    line-height: 1.45;
 }
 
-@keyframes floaty {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-1px); }
-    100% { transform: translateY(0); }
+/* estrellitas principales con pseudo-elementos */
+.love-card-brown::before,
+.love-card-brown::after {
+    content: "✨";
+    position: absolute;
+    font-size: 28px;
+    opacity: 0.28;
+    transform-origin: center;
+    animation: twinkle 4.5s infinite ease-in-out;
 }
 
+.love-card-brown::before {
+    top: -10px;
+    left: 18px;
+    animation-delay: 0s;
+}
+
+.love-card-brown::after {
+    bottom: -8px;
+    right: 20px;
+    animation-delay: 1.6s;
+}
+
+/* estrellitas extra dentro del div */
+.love-card-brown .star1,
+.love-card-brown .star2,
+.love-card-brown .star3 {
+    position: absolute;
+    font-size: 22px;
+    opacity: 0.35;
+    pointer-events: none;
+    animation: floatStars 6s infinite ease-in-out;
+    text-shadow: 0 1px 6px rgba(255, 235, 220, 0.6);
+}
+
+.love-card-brown .star1 { top: 18%; left: -8px; animation-delay: 0.8s; transform: rotate(-15deg); }
+.love-card-brown .star2 { top: 6%; right: -12px; animation-delay: 2.1s; transform: rotate(8deg); }
+.love-card-brown .star3 { bottom: 12%; left: 48%; animation-delay: 3.4s; transform: rotate(-6deg); }
+
+/* Animaciones */
+@keyframes floatStars {
+    0%   { transform: translateY(0) scale(1); opacity: 0.32; }
+    35%  { transform: translateY(-14px) scale(1.08); opacity: 0.62; }
+    70%  { transform: translateY(-6px) scale(1.03); opacity: 0.48; }
+    100% { transform: translateY(0) scale(1); opacity: 0.32; }
+}
+
+@keyframes twinkle {
+    0%   { transform: scale(0.9) rotate(0deg); opacity: 0.18; }
+    50%  { transform: scale(1.18) rotate(12deg); opacity: 0.6; }
+    100% { transform: scale(0.95) rotate(0deg); opacity: 0.18; }
+}
+
+@keyframes warmFloat {
+    0%   { box-shadow: 0 10px 22px rgba(150, 120, 100, 0.10); transform: translateY(0); }
+    50%  { box-shadow: 0 18px 34px rgba(150, 120, 100, 0.16); transform: translateY(-6px); }
+    100% { box-shadow: 0 10px 22px rgba(150, 120, 100, 0.10); transform: translateY(0); }
+}
+
+/* pequeño ajuste responsivo */
+@media (max-width: 480px) {
+    .love-card-brown { padding: 22px; border-radius: 18px; }
+    .love-card-brown h4 { font-size: 18px; }
+    .love-card-brown::before, .love-card-brown::after { font-size: 22px; }
+}
     h4 {
         text-align: center;
     }
@@ -47,9 +105,13 @@
 </head>
 <body>
     <h1>Primera fase</h1>
-    <div class="love-card">
-    <h4>Antes de comenzar, quiero darte este pequeño juego hecho con todo mi amor. Cada pieza de este puzzle es un pedacito de lo que siento por ti. 
-      Ojalá disfrutes armándolo tanto como yo disfruté creándolo para ti :) te amo.</h4></div>
+    <div class="love-card-brown">
+        <span class="star1">✨</span>
+        <span class="star2">✨</span>
+        <span class="star3">✨</span>
+        <h4>Antes de comenzar, quiero darte este pequeño juego hecho con todo mi amor. Cada pieza de este puzzle es un pedacito de lo que siento por ti. 
+          Ojalá disfrutes armándolo tanto como yo disfruté creándolo para ti :) te amo.</h4>
+    </div>
 
     <h3><a href="fase2.html">Fase 2</a></h3>
    
