@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Navidad :)</title>
+    <style>
+  .love-card-soft {
+    max-width: 620px;
+    margin: 25px auto;
+    padding: 28px 30px;
+    background: linear-gradient(145deg, #ffe6f1, #ffd2e4);
+    border-radius: 25px;
+    border: 2px solid #ffc1d9;
+    box-shadow: 
+        0 8px 18px rgba(255, 170, 195, 0.4),
+        inset 0 0 12px rgba(255, 200, 220, 0.5);
+    position: relative;
+    overflow: hidden;
+    animation: gentleGlow 4s ease-in-out infinite;
+}
+
+.love-card-soft h4 {
+    margin: 0;
+    text-align: center;
+    font-family: "Marck Script", cursive;
+    font-size: 21px;
+    color: #b0496c;
+}
+
+.love-card-soft::before {
+    content: "";
+    position: absolute;
+    top: -80%;
+    left: -80%;
+    width: 250%;
+    height: 250%;
+    background: radial-gradient(circle, rgba(255,255,255,0.5) 0%, transparent 60%);
+    animation: dreamyShine 6s linear infinite;
+}
+
+@keyframes dreamyShine {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes gentleGlow {
+    0% { box-shadow: 0 8px 18px rgba(255, 170, 195, 0.4); }
+    50% { box-shadow: 0 12px 28px rgba(255, 150, 185, 0.55); }
+    100% { box-shadow: 0 8px 18px rgba(255, 170, 195, 0.4); }
+}
+
+    h4 {
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+    <h1>Segunda Fase</h1>
+    <div style="margin-top:-20px;" class="love-card-soft">
+    <h4>Antes de comenzar, quiero darte este pequeño juego hecho con todo mi amor. Cada pieza de este puzzle es un pedacito de lo que siento por ti. 
+      Ojalá disfrutes armándolo tanto como yo disfruté creándolo para ti :) te amo.</h4></div>
+
+    <h3><a href="fase3.html">última Fase</a></h3>
+   
+    <h4><a href="Christmas.html">BACK</a></h1>
+</body>
+</html>
